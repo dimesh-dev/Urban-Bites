@@ -1,0 +1,358 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header Styles */
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 98%;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: Montserrat;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul.left-nav {
+    justify-content: flex-start;
+}
+
+header nav ul.right-nav {
+    justify-content: flex-end;
+}
+
+header nav ul li {
+    margin-left: 20px;
+    align-items: center;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a.order-now {
+    background-color: #ff6b6b;
+    color: #000000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.menu-header {
+    text-align: center;
+    padding-top: 80px; /* Adjust for fixed header */
+}
+
+.menu-header h2 {
+    font-size: 3.0em;
+    font-family: luloLuloCleanW;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 0px;
+}
+
+.menu-header h3 {
+    font-family: Montserrat;
+    color: #ff6b6b;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 0px;
+}
+
+/* Contact Styles (if needed) */
+.contact {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: black;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    font-family: luloLuloCleanW;
+    color: #fff;
+    background-color: black;
+    margin-bottom: 0px;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    color: #fff;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    font-family: Montserrat;
+    padding: 10px;
+}
+
+
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #555;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
+    text-align: left;
+    font-family: 'Montserrat';
+}
+
+
+.footer-section:last-child {
+    margin-right: 0;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #ff6b6b;
+}
+
+.footer-section p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.footer-section a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: auto;
+}
+
+.footer-section a:hover {
+    color: #ff6b6b;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* Social Icons Styles */
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    font-size: 14px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white; 
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #ff6666; /* Hover effect */
+}
+
+.social-links .fa {
+    margin-right: 10px; 
+    font-size: 16px; 
+}
+/* Menu Sections */
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../Images/menubgpic.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.menu-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.088); 
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-item img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #ffffff;
+}
+
+.menu-item p {
+    margin: 10px 0;
+    color: #777;
+    font-weight: bold;
+}
+
+/* Hover Effect */
+header nav ul li a:hover,
+.footer-section a:hover {
+    color: #ff6b6b;
+    transition: color 0.3s ease;
+}
+
+header nav ul.right-nav li a.order-now:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fonts */
+@font-face {
+    font-family: IrishGrover;
+    src: url(../Fonts/IrishGrover-Regular.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../Fonts/Montserrat-VariableFont_wght.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: luloLuloCleanW;
+    src: url(../Fonts/luloLuloCleanW01-Regular.ttf); /* Adjust if filename differs */
+    font-weight: normal;
+}
+
+.filter-buttons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filter-buttons button {
+    background-color: #ff6b6b;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filter-buttons button:hover {
+    background-color: #ff0000;
+    color: white;
+}
+
+/*popup styles*/
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    background-color: #000000;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

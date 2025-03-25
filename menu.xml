@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <item category="appetizers">
+        <name>Hot Butter Cuttlefish</name>
+        <price>1050</price>
+        <image>Images/HotButterCuttlefish.png</image>
+        <description>Spicy battered cuttlefish, deep-fried and tossed in a buttery sauce with garlic, ginger, and green chilies.</description>
+    </item>
+    <item category="appetizers">
+        <name>Sri Lankan Fish Cutlets (5 pcs)</name>
+        <price>390</price>
+        <image>Images/SriLankanFishCutlets.png</image>
+        <description>Spicy fish cakes made with potato, tuna, and a blend of Sri Lankan spices.</description>
+    </item>
+    <item category="appetizers">
+        <name>Spicy Devilled Chicken Wings</name>
+        <price>1600</price>
+        <image>Images/SpicyDevilledChickenWings.png</image>
+        <description>Chicken wings marinated in a spicy sauce, deep-fried, and tossed in a fiery sauce with onions, capsicum, &amp; green chilies.</description>
+    </item>
+    <item category="appetizers">
+        <name>Crispy Prawn Wontons</name>
+        <price>1750</price>
+        <image>Images/CrispyPrawnWontons.png</image>
+        <description>Deep-fried wontons filled with prawns, ginger, garlic, and spring onions.</description>
+    </item>
+    <item category="appetizers">
+        <name>Jaffna Mutton Rolls (3 pcs)</name>
+        <price>1200</price>
+        <image>Images/JaffnaMuttonRolls.png</image>
+        <description>Spicy mutton rolls made with a blend of Jaffna spices.</description>
+    </item>
+    <item category="mains">
+        <name>Rice &amp; Curry (Chicken/Fish/Vegetarian)</name>
+        <price>2200</price>
+        <image>Images/rice-and-curry.png</image>
+        <description>A choice of meat or vegetarian curry served with rice, dhal, and a selection of vegetable curries.</description>
+    </item>
+    <item category="mains">
+        <name>Kottu Roti (Chicken/Beef/Seafood/Vegetarian)</name>
+        <price>2000</price>
+        <image>Images/kottu.png</image>
+        <description>Chopped roti stir-fried with a choice of meat or seafood, vegetables, and spices.</description>
+    </item>
+    <item category="mains">
+        <name>Jaffna Crab Curry with Roast Paan</name>
+        <price>3500</price>
+        <image>Images/crab-curry.png</image>
+        <description>Crab curry made with a blend of Jaffna spices, served with Rosal Paan.</description>
+    </item>
+    <item category="mains">
+        <name>Lamprais (Dutch-Sri Lankan Rice Parcel)</name>
+        <price>2500</price>
+        <image>Images/lamprais.png</image>
+        <description>A Dutch-Sri Lankan specialty made with rice, meat curry, eggplant, and seeni sambol, wrapped in a banana leaf and baked.</description>
+    </item>
+    <item category="mains">
+        <name>Egg Hopper with Lunu Miris &amp; Chicken Curry</name>
+        <price>1050</price>
+        <image>Images/hoppers.png</image>
+        <description>A bowl-shaped pancake made with fermented rice flour, topped with an egg, served with lunu miris and chicken curry.</description>
+    </item>
+    <item category="desserts">
+        <name>Watalappan (Traditional Coconut Custard)</name>
+        <price>1200</price>
+        <image>Images/watalappan.png</image>
+        <description>A traditional Sri Lankan coconut custard made with jaggery, coconut milk, and spices.</description>
+    </item>
+    <item category="desserts">
+        <name>Sri Lankan Love Cake</name>
+        <price>1000</price>
+        <image>Images/love-cake.png</image>
+        <description>A traditional Sri Lankan cake made with semolina, cashew nuts, and candied peel.</description>
+    </item>
+    <item category="desserts">
+        <name>Buffalo Curd with Treacle</name>
+        <price>800</price>
+        <image>Images/curd.png</image>
+        <description>Buffalo curd served with kithul treacle and grated coconut.</description>
+    </item>
+    <item category="desserts">
+        <name>Milk Toffee (4 pcs)</name>
+        <price>950</price>
+        <image>Images/milk-toffee.png</image>
+        <description>A traditional Sri Lankan sweet made with condensed milk, sugar, and cashew nuts.</description>
+    </item>
+    <item category="desserts">
+        <name>Jaggery &amp; Coconut Pancakes</name>
+        <price>850</price>
+        <image>Images/pancakes.png</image>
+        <description>Coconut pancakes made with jaggery, coconut milk, and rice flour.</description>
+    </item>
+</menu>
