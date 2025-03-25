@@ -195,6 +195,7 @@ footer p {
 .footer-section a {
     color: #ffffff;
     text-decoration: none;
+    padding: 0px;
 }
 
 .footer-section a:hover {

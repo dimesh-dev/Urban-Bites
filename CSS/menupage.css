@@ -159,7 +159,7 @@ footer a {
 .footer-section a {
     color: #ffffff;
     text-decoration: none;
-    padding: auto;
+    padding: 0px;
 }
 
 .footer-section a:hover {
