@@ -122,40 +122,50 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Manual form validation function
+    // Manual form validation function (only check required fields)
     function validateOrderForm() {
         let isValid = true;
         let errorMessage = "";
 
         // Get form fields
-        const name = document.getElementById("customer-name")?.value.trim();
-        const address = document.getElementById("customer-address")?.value.trim();
-        const phone = document.getElementById("customer-phone")?.value.trim();
-        const email = document.getElementById("customer-email")?.value.trim();
+        const nameField = document.getElementById("names");
+        const addressField = document.getElementById("address");
+        const phoneField = document.getElementById("phone");
+        const emailField = document.getElementById("email");
 
-        // Validate name (required, at least 2 characters)
-        if (!name || name.length < 2) {
-            errorMessage += "Name is required and must be at least 2 characters long.\n";
+        // Check if fields exist
+        if (!nameField || !addressField || !phoneField || !emailField) {
+            console.error("One or more form fields not found in the DOM");
+            alert("Error: Form fields are missing. Please check the page structure.");
+            return false;
+        }
+
+        const name = nameField.value.trim();
+        const address = addressField.value.trim();
+        const phone = phoneField.value.trim();
+        const email = emailField.value.trim();
+
+        // Validate name (required)
+        if (!name) {
+            errorMessage += "Name is required.\n";
             isValid = false;
         }
 
-        // Validate address (required, at least 5 characters)
-        if (!address || address.length < 5) {
-            errorMessage += "Address is required and must be at least 5 characters long.\n";
+        // Validate address (required)
+        if (!address) {
+            errorMessage += "Address is required.\n";
             isValid = false;
         }
 
-        // Validate phone (required, must match a simple phone number pattern)
-        const phonePattern = /^\d{10}$/; // Example: 10 digits (e.g., 0771234567)
-        if (!phone || !phonePattern.test(phone)) {
-            errorMessage += "Phone number is required and must be a valid 10-digit number.\n";
+        // Validate phone (required)
+        if (!phone) {
+            errorMessage += "Phone number is required.\n";
             isValid = false;
         }
 
-        // Validate email (required, must match a simple email pattern)
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email pattern
-        if (!email || !emailPattern.test(email)) {
-            errorMessage += "A valid email address is required.\n";
+        // Validate email (required)
+        if (!email) {
+            errorMessage += "Email is required.\n";
             isValid = false;
         }
 
