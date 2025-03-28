@@ -69,3 +69,14 @@ body {
     background-color: #ff0000;
     color: white;
 }
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
+
+.invalid {
+    border: 2px solid red;
+}

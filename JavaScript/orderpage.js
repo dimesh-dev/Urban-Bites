@@ -122,10 +122,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Manual form validation function (only check required fields)
+    // Function to display error messages
+    function displayError(fieldId, message) {
+        const errorElement = document.getElementById(`${fieldId}-error`);
+        const fieldElement = document.getElementById(fieldId);
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+        if (fieldElement) {
+            fieldElement.classList.add("invalid");
+        }
+    }
+
+    // Function to clear all error messages and invalid styles
+    function clearErrors() {
+        const errorElements = document.querySelectorAll(".error");
+        const invalidElements = document.querySelectorAll(".invalid");
+        errorElements.forEach(element => {
+            element.textContent = "";
+        });
+        invalidElements.forEach(element => {
+            element.classList.remove("invalid");
+        });
+    }
+
+    // Manual form validation function with specific rules
     function validateOrderForm() {
         let isValid = true;
-        let errorMessage = "";
+        clearErrors(); // Clear previous error messages and styles
 
         // Get form fields
         const nameField = document.getElementById("names");
@@ -145,33 +169,43 @@ document.addEventListener("DOMContentLoaded", function () {
         const phone = phoneField.value.trim();
         const email = emailField.value.trim();
 
-        // Validate name (required)
+        // Validate name (required, at least 2 characters, only letters and spaces)
         if (!name) {
-            errorMessage += "Name is required.\n";
+            displayError("names", "(Name is required.)");
+            isValid = false;
+        } else if (name.length < 2) {
+            displayError("names", "(Name must be at least 2 characters long.)");
+            isValid = false;
+        } else if (!/^[a-zA-Z\s]+$/.test(name)) {
+            displayError("names", "(Name can only contain letters and spaces.)");
             isValid = false;
         }
 
-        // Validate address (required)
+        // Validate address (required, at least 5 characters)
         if (!address) {
-            errorMessage += "Address is required.\n";
+            displayError("address", "(Address is required.)");
+            isValid = false;
+        } else if (address.length < 5) {
+            displayError("address", "(Address must be at least 5 characters long.)");
             isValid = false;
         }
 
-        // Validate phone (required)
+        // Validate phone (required, must match a phone number format, e.g., 123-456-7890 or 1234567890)
         if (!phone) {
-            errorMessage += "Phone number is required.\n";
+            displayError("phone", "(Phone number is required.)");
+            isValid = false;
+        } else if (!/^\d{10}$|^\d{3}-\d{3}-\d{4}$/.test(phone)) {
+            displayError("phone", "(Phone number must be 10 digits (e.g., 1234567890 or 123-456-7890).)");
             isValid = false;
         }
 
-        // Validate email (required)
+        // Validate email (required, must match email format)
         if (!email) {
-            errorMessage += "Email is required.\n";
+            displayError("email", "(Email is required.)");
             isValid = false;
-        }
-
-        // If validation fails, show the error message
-        if (!isValid) {
-            alert(errorMessage);
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            displayError("email", "(Please enter a valid email address (e.g., john.doe@example.com).)");
+            isValid = false;
         }
 
         return isValid;
@@ -191,8 +225,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const rawTotal = cartTotal.textContent.split("Total: RS.")[1]?.trim();
-        const totalAmount = parseFloat(rawTotal);
+        // Calculate the total directly from the cart for robustness
+        let subtotal = 0;
+        cart.forEach(item => {
+            subtotal += item.price * item.quantity;
+        });
+        const totalAmount = subtotal + DELIVERY_CHARGE;
 
         if (isNaN(totalAmount) || totalAmount <= 0) {
             alert("Invalid total amount. Please check your cart.");

@@ -469,3 +469,16 @@ header nav ul.right-nav li a.order-now:hover {
     display: flex;
     padding: 10px;
 }
+
+/* Error Messages */
+.error {
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 10px;
+    font-family: Montserrat;
+}
+
+.invalid {
+    border: 2px solid red;
+}
