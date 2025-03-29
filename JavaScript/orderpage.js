@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Calculate the total directly from the cart for robustness
+        // Calculate the total directly from the cart
         let subtotal = 0;
         cart.forEach(item => {
             subtotal += item.price * item.quantity;

@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handle the form submission and display a success message
     document.getElementById("card-payment-form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission (e.g., page reload)
+        event.preventDefault(); // Prevent default form submission 
 
         // Validation: Check fields with specific rules
         let isValid = true;
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const expiryDate = expiryDateField.value.trim();
         const cvv = cvvField.value.trim();
 
-        // Validate Card Number (required, 16 digits, e.g., 1234567890123456 or 1234-5678-9012-3456)
+        // Validate Card Number 
         if (!cardNumber) {
             displayError("card-number", "Card Number is required.");
             errorMessage += "Card Number is required.\n";

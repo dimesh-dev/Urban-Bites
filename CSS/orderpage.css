@@ -457,11 +457,18 @@ header nav ul.right-nav li a.order-now:hover {
     cursor: pointer;
     width: 100%;
     margin-top: 20px;
+    font-family: Montserrat;
 }
+
+
 
 #proceed-to-payment:hover {
     background-color: #ff4c4c;
     color: white;
+}
+
+#view-cart-btn{
+    font-family: Montserrat;
 }
 
 .payment-option{
