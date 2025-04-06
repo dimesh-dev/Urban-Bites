@@ -70,6 +70,7 @@ header nav ul li a.order-now {
 /* Banner Styles */
 .hero {
     background-image: url('../Images/headerbg.gif');
+    background-color: #000000;
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -123,6 +124,7 @@ header nav ul li a.order-now {
     padding: 50px 20px;
     text-align: center;
     background-image: url(../Images/menubg.jpg);
+    background-color: #000000;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -139,6 +141,7 @@ header nav ul li a.order-now {
     padding: 50px 20px;
     text-align: center;
     background-image: url(../Images/reviewbg.jpg);
+    background-color: #000000;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -411,3 +414,15 @@ header nav ul.right-nav li a.order-now:hover,
     cursor: pointer;
 }
 
+.map-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.map-frame {
+    width: 100%;
+    height: 500px;
+    border: 0;
+    filter: invert(90%) hue-rotate(180deg);
+}

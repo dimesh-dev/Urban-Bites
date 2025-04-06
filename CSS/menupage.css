@@ -60,7 +60,7 @@ header nav ul li a.order-now {
 
 .menu-header {
     text-align: center;
-    padding-top: 80px; /* Adjust for fixed header */
+    padding-top: 80px; 
 }
 
 .menu-header h2 {
@@ -218,6 +218,7 @@ body::before {
     right: 0;
     bottom: 0;
     background-image: url('../Images/menubgpic.jpg');
+    background-color: #000000;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;

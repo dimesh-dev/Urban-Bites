@@ -5,6 +5,7 @@ html {
 body {
     font-family: Arial, sans-serif;
     background-image:url(../Images/ordernowbg.jpg);
+    background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -81,6 +82,7 @@ header nav ul li a.order-now {
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 0px;
+    text-align: center;
 }
 
 .order-form h3{
@@ -88,6 +90,7 @@ header nav ul li a.order-now {
     color: #ff6b6b;
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 0px;
+    text-align: center;
 }
 .order-form label {
     display: block;
@@ -234,7 +237,7 @@ footer p {
 }
 
 .social-links a:hover {
-    color: #ff6666; /* Hover effect */
+    color: #ff6666; 
 }
 
 .social-links .fa {
@@ -270,10 +273,10 @@ footer p {
 
 .menu-checkbox {
     margin-right: 10px;
-    appearance: none; /* Remove default checkbox */
+    appearance: none; 
     width: 20px;
     height: 20px;
-    border: 2px solid #ff6b6b; /* Teal border */
+    border: 2px solid #ff6b6b; 
     border-radius: 4px;
     cursor: pointer;
     position: relative;
@@ -414,7 +417,7 @@ header nav ul.right-nav li a.order-now:hover {
 
 .modal-content {
     background-color: #000000;
-    margin: 10% auto; /* Center the modal */
+    margin: 10% auto; 
     padding: 20px;
     border-radius: 10px;
     width: 80%;
