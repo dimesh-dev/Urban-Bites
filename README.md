@@ -7,7 +7,6 @@ Urban Bites is a modern, responsive web application built for food enthusiasts a
 ## 🚀 Live Demo
 
 👉 [Visit Urban Bites](https://dimesh-dev.github.io/Urban-Bites/)  
-*(Replace with your actual URL)*
 
 ---
 
