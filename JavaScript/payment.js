@@ -75,6 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Success
         alert("Payment Successful! Your order has been placed.");
         localStorage.removeItem('urbanBitesCart'); // Clear cart
-        window.location.href = 'homepage.html';
+        window.location.href = 'index.html';
     });
 });
