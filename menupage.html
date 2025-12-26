@@ -1,193 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Bites</title>
+    <title>Urban Bites | Curated Menu</title>
     <link rel="icon" type="image/x-icon" href="Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@400;700;800&family=Big+Shoulders+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="CSS/menupage.css">
-    <script src="JavaScript/menupage.js" defer></script>
 </head>
+
 <body>
-    <header>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <div class="noise-overlay"></div>
+
+    <header id="main-header">
         <nav>
-            <ul class="left-nav">
-                <li><img src="Images/Logo.png" alt="Header Logo" style="width: 50px; height: 50px;" class="center"></li>
-                <li><p style="text-align: left; font-family: 'IrishGrover';">Urban Bites</p></li>
+            <div class="logo-container">
+                <img src='Images/Logo.png' alt="Urban Bites Logo" class="nav-logo">
+                <span class="brand-name">Urban Bites</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homepage.html" class="hover-target">Home</a></li>
+                <li><a href="menupage.html" class="active hover-target">Menu</a></li>
+                <li><a href="homepage.html#review" class="hover-target">Reviews</a></li>
+                <li><a href="#footer" class="hover-target">Contact</a></li>
+                <li><a href="orderpage.html" class="cta-button hover-target">Cart <span id="cart-count">(0)</span></a>
+                </li>
             </ul>
-            <ul class="right-nav">
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="menupage.html">Menu</a></li>
-                <li><a href="#footer">Contact</a></li>
-                <li><a href="homepage.html#review">Reviews</a></li>
-                <li><a href="orderpage.html" class="order-now">Order Now</a></li>
-            </ul>
+            <div class="burger hover-target" onclick="toggleMobileMenu()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </nav>
     </header>
 
-    <section id="menu-header" class="menu-header">
-        <h3>◉ TASTE THE BEST THAT SURPRISE YOU</h3>
-        <h2>OUR SPECIAL <span style="color: #ff6b6b;">MENU</span></h2><br>
+    <div class="page-overlay"></div>
 
-        <div class="filter-buttons">
-            <button onclick="filterMenu('all')"><span style="font-family: Montserrat;">All</span></button>
-            <button onclick="filterMenu('appetizers')"><span style="font-family: Montserrat;">Appetizers</span></button>
-            <button onclick="filterMenu('mains')"><span style="font-family: Montserrat;">Mains</span></button>
-            <button onclick="filterMenu('desserts')"><span style="font-family: Montserrat;">Desserts</span></button>
-        </div>
-        
-        <div id="menu-section" class="menu-section">
-            <div class="menu-grid" id="menu-grid"></div>
+    <section id="menu-header" class="section-header-wrapper reveal-text">
+        <h3 class="section-label">CURATED SELECTION</h3>
+        <h2 class="hero-title">Taste <span class="highlight italic-font">The Art</span></h2>
+        <div class="filter-container">
+            <button class="filter-btn active hover-target" onclick="filterMenu('all')">All</button>
+            <button class="filter-btn hover-target" onclick="filterMenu('appetizers')">Appetizers</button>
+            <button class="filter-btn hover-target" onclick="filterMenu('mains')">Mains</button>
+            <button class="filter-btn hover-target" onclick="filterMenu('desserts')">Desserts</button>
         </div>
     </section>
 
-    <footer id="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>CONTACT</h3>
-                <p><strong><i class="fa fa-map-marker"></i> ADDRESS:<br></strong> <span style="color:#757575 ;">51,Queen's Road,<br> Colombo 03</span></p><br>
-                <p><strong><i class="fa fa-phone"></i>TELEPHONE:<br></strong><span style="color:#757575 ;">0770123456 | 0113456789</span> </p><br>
-                <p><strong><i class="fa fa-envelope"></i>EMAIL:<br></strong><a href="mailto:urbanbites@gmail.com"><span style="color:#757575 ;">urbanbites@gmail.com</span></a></p><br>
-                <p><strong><i class="fa fa-history"></i>OPEN HOURS:<br></strong><span style="color:#757575 ;">Mon - Sun | 10.00 AM to 9.00 PM</span> </p>
-            </div>
-            <div class="footer-section">
-                <h3>FOLLOW US</h3>
-                <div class="social-links">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                    <a href="https://www.facebook.com/urbanbites" target="_blank" class="fa fa-facebook"> &nbsp;&nbsp;&nbsp; <span style="font-family: Montserrat;"> Facebook</span></a>
-                    <a href="https://www.instagram.com/urbanbites" target="_blank" class="fa fa-instagram">&nbsp;&nbsp;&nbsp; <span style="font-family: Montserrat;"> Instagram</span></a>
-                    <a href="https://www.youtube.com/urbanbites" target="_blank" class="fa fa-youtube"> &nbsp;&nbsp;&nbsp; <span style="font-family: Montserrat;">Youtube</span></a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>LEGAL</h3>
-                <p><a href="#terms" onclick="openTermsPopup()">Terms & Conditions</a></p>
-                <div id="termsPopup" class="popup">
-                    <div class="popup-content">
-                        <span class="close" onclick="closeTermsPopup()">&times;</span>
-                        <h2 style="color: #ff6b6b;">Terms & Conditions</h2>
-                        <p>Last Updated: 20.02.2025<br><br>
+    <section id="menu-section" class="section menu-section reveal-fade">
+        <div class="menu-grid" id="menu-grid">
+            <p style="color: white; text-align: center;">Loading menu items...</p>
+        </div>
+    </section>
 
-                            Welcome to Urban Bites! These Terms and Conditions govern your use of our website, mobile application, and services. By accessing or using Urban Bites, you agree to comply with and be bound by these terms. If you do not agree, please do not use our services.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">1. Acceptance of Terms</span> <br>
-                            By using Urban Bites, you confirm that you are at least 18 years old or have parental/guardian consent to use our services. You agree to use our platform in accordance with these terms and all applicable laws.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">2. Services</span><br>
-                            Urban Bites provides an online platform for users to explore, order, and enjoy food from local restaurants and vendors. We act as an intermediary between users and restaurants, and we are not responsible for the quality, safety, or delivery of the food.<br><br>
-                        
-                                             
-                            <span style="font-size: larger; color: #ff6b6b;">3. Orders and Payments</span><br>
-                            &#9673; All orders are subject to availability and confirmation by the restaurant.<br>
-                            
-                            &#9673; Payment is processed through secure third-party payment gateways.<br>
-                            
-                            &#9673; Urban Bites is not responsible for any issues arising from payment processing.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">4. Cancellations and Refunds</span><br>
-                            &#9673; Cancellations are subject to the restaurant's policies.<br>
-                            
-                            &#9673; Refunds, if applicable, will be processed in accordance with our refund policy.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">5. Prohibited Activities</span><br>
-                            You agree not to:<br>
-                            
-                            &#9673; Use Urban Bites for any illegal or unauthorized purpose.<br>
-                            
-                            &#9673; Violate any laws in your jurisdiction.<br>
-                            
-                            &#9673; Interfere with the proper functioning of the platform.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">6. Limitation of Liability</span><br>
-                            Urban Bites is not liable for any indirect, incidental, or consequential damages arising from your use of our services.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">7. Changes to Terms</span><br>
-                            We reserve the right to modify these terms at any time. Continued use of our services constitutes acceptance of the updated terms.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">8. Governing Law</span><br>
-                            These terms are governed by the laws of Sri Lanka, and any disputes will be resolved in the courts of Sri Lanka.</p>
+    <div id="toast" class="toast">Item added to cart</div>
+
+    <footer id="footer" class="footer-modern">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-nav">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="homepage.html" class="hover-target">Home</a></li>
+                        <li><a href="menupage.html" class="hover-target">Menu</a></li>
+                        <li><a href="homepage.html#about" class="hover-target">About</a></li>
+                        <li><a href="homepage.html#review" class="hover-target">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#" onclick="openTermsPopup(); return false;" class="hover-target">Terms</a></li>
+                        <li><a href="#" onclick="openPrivacyPopup(); return false;" class="hover-target">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Get in Touch</h3>
+                    <p><a href="mailto:urbanbites@gmail.com" class="hover-target">urbanbites@gmail.com</a></p>
+                    <p>077 012 3456</p>
+                    <div class="socials">
+                        <a href="#" class="hover-target"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="hover-target"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="hover-target"><i class="fa fa-youtube"></i></a>
                     </div>
                 </div>
-                              
-               <p><a href="#privacy" onclick="openPrivacyPopup()">Privacy Policy</a></p>
-               <div id="privacyPopup" class="popup">
-                   <div class="popup-content">
-                       <span class="close" onclick="closePrivacyPopup()">&times;</span>
-                       <h2 style="color: #ff6b6b;">Privacy Policy</h2>
-                       <p>Last Updated: 20.02.2025<br><br>
-
-                        At Urban Bites, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you use our website, mobile app, and services.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">1. Information We Collect</span><br>
-                        We may collect the following information:<br>
-                        
-                        &#9673; Personal Information: Name, email address, phone number, and payment details.<br>
-                        
-                        &#9673; Location Data: To provide location-based services.<br>
-                        
-                        &#9673; Usage Data: Information about how you interact with our platform.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">2. How We Use Your Information</span><br>
-                        We use your information to:<br>
-                        
-                        &#9673; Process orders and payments.<br>
-                        
-                        &#9673; Improve our services and user experience.<br>
-                        
-                        &#9673; Send promotional offers and updates (with your consent).<br>
-                        
-                        &#9673; Comply with legal obligations.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">3. Sharing Your Information</span><br>
-                        We may share your information with:<br>
-                        
-                        &#9673; Restaurants and delivery partners to fulfill orders.<br>
-                        
-                        &#9673; Third-party service providers (e.g., payment processors).<br>
-                        
-                        &#9673; Legal authorities if required by law.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">4. Data Security</span><br>
-                        We implement industry-standard security measures to protect your data. However, no method of transmission over the internet is 100% secure.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">5. Your Rights</span><br>
-                        You have the right to:<br>
-                        
-                        &#9673; Access, update, or delete your personal information.<br>
-                        
-                        &#9673; Opt-out of marketing communications.<br>
-                        
-                        &#9673; Withdraw consent for data processing.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">6. Cookies and Tracking</span><br>
-                        We use cookies and similar technologies to enhance your experience. You can disable cookies in your browser settings, but this may affect platform functionality.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">7. Third-Party Links</span><br>
-                        Our platform may contain links to third-party websites. We are not responsible for their privacy practices.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">8. Children's Privacy</span><br>
-                        Urban Bites does not knowingly collect information from children under 13. If we become aware of such data, we will delete it immediately.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">9. Changes to This Policy</span><br>
-                        We may update this Privacy Policy from time to time. Any changes will be posted on this page.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">10. Contact Us</span><br>
-                        If you have any questions about this Privacy Policy, please contact us at:<br>
-                        
-                        &#9673; Email: urbanbites@gmail.com<br>
-                        
-                        &#9673; Phone: 0770123456 | 0113456789<br>
-                        
-                        &#9673; Address: 51 , Queen's Road , Colombo 03</p>
-                   </div>
-               </div>
-               
             </div>
+
+            <div class="footer-big-text">
+                <span>URBAN BITES</span>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2025 Urban Bites. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="termsPopup" class="popup">
+        <div class="popup-content glass-card">
+            <span class="close hover-target" onclick="closeTermsPopup()">&times;</span>
+            <h2 class="highlight">Terms & Conditions</h2>
+            <div class="scrollable-content">
+                <p>Content...</p>
+            </div>
+        </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Urban Bites</p>
+    <div id="privacyPopup" class="popup">
+        <div class="popup-content glass-card">
+            <span class="close hover-target" onclick="closePrivacyPopup()">&times;</span>
+            <h2 class="highlight">Privacy Policy</h2>
+            <div class="scrollable-content">
+                <p>Content...</p>
+            </div>
+        </div>
     </div>
-</footer>
+
+    <script>
+        const menuItems = [
+            { name: "Hot Butter Cuttlefish", price: 1050, image: "Images/HotButterCuttlefish.png", description: "Spicy battered cuttlefish with garlic & chilies.", category: "appetizers" },
+            { name: "Sri Lankan Fish Cutlets (5 pcs)", price: 390, image: "Images/SriLankanFishCutlets.png", description: "Spicy fish cakes with tuna & spices.", category: "appetizers" },
+            { name: "Spicy Devilled Chicken Wings", price: 1600, image: "Images/SpicyDevilledChickenWings.png", description: "Wings in fiery sauce.", category: "appetizers" },
+            { name: "Crispy Prawn Wontons", price: 1750, image: "Images/CrispyPrawnWontons.png", description: "Fried wontons with prawns.", category: "appetizers" },
+            { name: "Jaffna Mutton Rolls", price: 1200, image: "Images/JaffnaMuttonRolls.png", description: "Spicy mutton rolls.", category: "appetizers" },
+            { name: "Rice & Curry", price: 2200, image: "Images/rice-and-curry.png", description: "Meat/veg curry with rice.", category: "mains" },
+            { name: "Kottu Roti", price: 2000, image: "Images/kottu.png", description: "Stir-fried roti with meat.", category: "mains" },
+            { name: "Jaffna Crab Curry", price: 3500, image: "Images/crab-curry.png", description: "Spicy crab with Roast Paan.", category: "mains" },
+            { name: "Lamprais", price: 2500, image: "Images/lamprais.png", description: "Dutch-Lankan rice parcel.", category: "mains" },
+            { name: "Egg Hopper", price: 1050, image: "Images/hoppers.png", description: "Hoppers with lunu miris.", category: "mains" },
+            { name: "Watalappan", price: 1200, image: "Images/watalappan.png", description: "Jaggery custard.", category: "desserts" },
+            { name: "Sri Lankan Love Cake", price: 1000, image: "Images/love-cake.png", description: "Semolina cashew cake.", category: "desserts" },
+            { name: "Buffalo Curd", price: 800, image: "Images/curd.png", description: "Curd & treacle.", category: "desserts" },
+            { name: "Milk Toffee", price: 950, image: "Images/milk-toffee.png", description: "Sweet fudge.", category: "desserts" },
+            { name: "Pancakes", price: 850, image: "Images/pancakes.png", description: "Coconut pancakes.", category: "desserts" }
+        ];
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuGrid = document.getElementById("menu-grid");
+            updateCartCount();
+
+            window.displayItems = function (category = "all") {
+                if (!menuGrid) return;
+                menuGrid.innerHTML = "";
+                const filtered = category === "all" ? menuItems : menuItems.filter(i => i.category === category);
+                if (filtered.length === 0) { menuGrid.innerHTML = "<p class='no-items'>No items found.</p>"; return; }
+                filtered.forEach(item => {
+                    const card = document.createElement("div");
+                    card.className = "menu-item hover-target";
+                    const itemString = JSON.stringify(item).replace(/"/g, '&quot;');
+                    card.innerHTML = `
+                    <div style="overflow: hidden;"><img src="${item.image}" alt="${item.name}" onerror="this.src='Images/Logo.png'"></div>
+                    <div class="menu-content">
+                        <div class="menu-header-row"><h3>${item.name}</h3><span class="price">Rs ${item.price}</span></div>
+                        <p class="description">${item.description}</p>
+                        <button class="add-to-cart-btn" onclick="addToCart(${itemString})">Add to Cart</button>
+                    </div>`;
+                    menuGrid.appendChild(card);
+                });
+                if (window.attachCursorListeners) attachCursorListeners();
+            }
+
+            window.filterMenu = function (category) {
+                displayItems(category);
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.textContent.toLowerCase() === category || (category === 'all' && btn.textContent === 'All'));
+                });
+            };
+
+            window.addToCart = function (item) {
+                let cart = JSON.parse(localStorage.getItem('urbanBitesCart')) || [];
+                const existing = cart.find(i => i.name === item.name);
+                if (existing) existing.quantity++; else { item.quantity = 1; cart.push(item); }
+                localStorage.setItem('urbanBitesCart', JSON.stringify(cart));
+                updateCartCount();
+                showToast(`Added ${item.name}`);
+            };
+
+            function updateCartCount() {
+                const count = (JSON.parse(localStorage.getItem('urbanBitesCart')) || []).reduce((a, b) => a + b.quantity, 0);
+                const el = document.getElementById('cart-count'); if (el) el.textContent = `(${count})`;
+            }
+
+            function showToast(msg) {
+                const t = document.getElementById('toast'); t.textContent = msg; t.className = "toast show";
+                setTimeout(() => { t.className = t.className.replace("show", "") }, 3000);
+            }
+
+            displayItems();
+
+            // Cursor Logic (0.5 Speed)
+            const pCursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            const dot = document.getElementById('cursor-dot');
+            const outline = document.getElementById('cursor-outline');
+            window.addEventListener('mousemove', e => {
+                pCursor.x = e.clientX; pCursor.y = e.clientY;
+                if (dot) { dot.style.top = pCursor.y + 'px'; dot.style.left = pCursor.x + 'px'; }
+            });
+            let ox = pCursor.x, oy = pCursor.y;
+            function animateCursor() {
+                ox += (pCursor.x - ox) * 0.5;
+                oy += (pCursor.y - oy) * 0.5;
+                if (outline) { outline.style.top = oy + 'px'; outline.style.left = ox + 'px'; }
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            window.attachCursorListeners = function () {
+                if (!outline) return;
+                document.querySelectorAll('.hover-target, a, button').forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        outline.style.transform = 'translate(-50%, -50%) scale(2.5)';
+                        outline.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                        if (dot) dot.style.opacity = '0';
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        outline.style.transform = 'translate(-50%, -50%) scale(1)';
+                        outline.style.backgroundColor = 'transparent';
+                        if (dot) dot.style.opacity = '1';
+                    });
+                });
+            }
+            attachCursorListeners();
+
+            // Mobile Menu Logic (New)
+            window.toggleMobileMenu = function () {
+                const nav = document.querySelector('.nav-links');
+                const burger = document.querySelector('.burger');
+                nav.classList.toggle('nav-active');
+
+                document.querySelectorAll('.nav-links li').forEach((link, index) => {
+                    if (link.style.animation) { link.style.animation = ''; }
+                    else { link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`; }
+                });
+                burger.classList.toggle('toggle');
+            };
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-text, .reveal-fade').forEach(el => observer.observe(el));
+        });
+
+        function openTermsPopup() { document.getElementById("termsPopup").style.display = "block"; }
+        function closeTermsPopup() { document.getElementById("termsPopup").style.display = "none"; }
+        function openPrivacyPopup() { document.getElementById("privacyPopup").style.display = "block"; }
+        function closePrivacyPopup() { document.getElementById("privacyPopup").style.display = "none"; }
+        window.onclick = function (e) {
+            if (e.target == document.getElementById("termsPopup")) closeTermsPopup();
+            if (e.target == document.getElementById("privacyPopup")) closePrivacyPopup();
+        };
+    </script>
 </body>
+
 </html>

@@ -1,360 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Place Your Order</title>
+    <title>Urban Bites | Your Cart</title>
     <link rel="icon" type="image/x-icon" href="Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@400;700;800&family=Big+Shoulders+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="CSS/orderpage.css">
-    <script src="JavaScript/orderpage.js"></script>
-
 </head>
+
 <body>
-    <header>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <div class="noise-overlay"></div>
+
+    <header id="main-header">
         <nav>
-            <ul class="left-nav">
-                <li><img src='Images/Logo.png' alt="Header Logo" style="width: 50px; height: 50px;" class="center"></li>
-                <li><p style="text-align: left; font-family: 'IrishGrover';">Urban Bites</p></li>
+            <div class="logo-container">
+                <img src='Images/Logo.png' alt="Urban Bites Logo" class="nav-logo">
+                <span class="brand-name">Urban Bites</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homepage.html" class="hover-target">Home</a></li>
+                <li><a href="menupage.html" class="hover-target">Menu</a></li>
+                <li><a href="homepage.html#review" class="hover-target">Reviews</a></li>
+                <li><a href="#footer" class="hover-target">Contact</a></li>
+                <li><a href="orderpage.html" class="cta-button hover-target active">Cart <span
+                            id="cart-count">(0)</span></a></li>
             </ul>
-            <ul class="right-nav">
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="menupage.html">Menu</a></li>
-                <li><a href="#footer">Contact</a></li>
-                <li><a href="homepage.html#review">Reviews</a></li>
-                <li><a href="orderpage.html" class="order-now">Order Now</a></li>
-            </ul>
+            <div class="burger hover-target" onclick="toggleMobileMenu()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </nav>
     </header>
-    <div class="order-form">
-        <h3>&#9673; ORDER NOW AND SAVOR EVERY BITE</h3>
-        <h2>PLACE YOUR <span style="color: #ff6b6b;">ORDER</span></h2><br>
-        <form>
-            <label for="names"><span style="color: #ff6b6b;">NAMES:</span></label>
-        <input type="text" id="names" name="names" required>
-        <span class="error" id="names-error"></span>
 
-        <label for="email"><span style="color: #ff6b6b;">EMAIL:</span></label>
-        <input type="email" id="email" name="email" required>
-        <span class="error" id="email-error"></span>
+    <div class="page-overlay"></div>
 
-        <label for="phone"><span style="color: #ff6b6b;">PHONE NUMBER:</span></label>
-        <input type="tel" id="phone" name="phone" required>
-        <span class="error" id="phone-error"></span>
-
-        <label for="address"><span style="color: #ff6b6b;">DELIVERY ADDRESS:</span></label>
-        <textarea id="address" name="address" required></textarea>
-        <span class="error" id="address-error"></span>
-
-            <h3>MENU ITEMS:</h3>
-            <!-- Appetizers Section -->
-            <div class="menu-section">
-                <h2>Appetizers</h2>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="1850" aria-label="Hot Butter Cuttlefish">
-                    <img src="Images/HotButterCuttlefish.png" alt="Hot Butter Cuttlefish">
-                    <label>HOT BUTTER CUTTLEFISH - RS.1,850/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Hot Butter Cuttlefish">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="900" aria-label="Fish Cutlets">
-                    <img src="Images/SriLankanFishCutlets.png" alt="Fish Cutlets">
-                    <label>SRI LANKAN FISH CUTLETS (5 PCS) - RS.900/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Fish Cutlets">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="1600" aria-label="Devilled Chicken Wings">
-                    <img src="Images/SpicyDevilledChickenWings.png" alt="Devilled Chicken Wings">
-                    <label>SPICY DEVILLED CHICKEN WINGS - RS.1,600/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Devilled Chicken Wings">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="1750" aria-label="Prawn Wontons">
-                    <img src="Images/CrispyPrawnWontons.png" alt="Prawn Wontons">
-                    <label>CRISPY PRAWN WUNTONS - RS.1,750/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Prawn Wontons">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="1200" aria-label="Jaffna Mutton Rolls">
-                    <img src="Images/JaffnaMuttonRolls.png" alt="Jaffna Mutton Rolls">
-                    <label>JAFFNA MUTTON ROLLS (3 PCS) - RS.1,200/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Jaffna Mutton Rolls">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-            </div>
-
-            <!-- Mains Section -->
-            <div class="menu-section">
-                <h2>Mains</h2>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="2200" aria-label="Rice & Curry">
-                    <img src="Images/rice-and-curry.png" alt="Rice & Curry">
-                    <label>RICE & CURRY (CHICKEN/FISH/VEGETARIAN) - RS.2,200/-</label>
-                    <select id="option6" name="option6" aria-label="Rice & Curry Options">
-                        <option value="Chicken">Chicken</option>
-                        <option value="Fish">Fish</option>
-                        <option value="Vegetarian">Vegetarian</option>
-                    </select>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Rice & Curry">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="2000"  aria-label="Kottu Roti">
-                    <img src="Images/kottu.png" alt="Kottu Roti">
-                    <label>KOTTU ROTI (CHICKEN/BEEF/SEAFOOD/VEGETARIAN) - RS.2,000/-</label>
-                    <select id="option7" name="option7" aria-label="Kottu Roti Options">
-                        <option value="Chicken">Chicken</option>
-                        <option value="Beef">Beef</option>
-                        <option value="Seafood">Seafood</option>
-                        <option value="Vegetarian">Vegetarian</option>
-                    </select>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Kottu Roti">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="3800" aria-label="Jaffna Crab Curry">
-                    <img src="Images/crab-curry.png" alt="Jaffna Crab Curry">
-                    <label>JAFFNA CRAB CURRY WITH ROAST PAAN - RS.3,800/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Jaffna Crab Curry">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="2500" aria-label="Lamprais">
-                    <img src="Images/lamprais.png" alt="Lamprais">
-                    <label>LAMPRAIS (DUTCH-SRI LANKAN RICE PARCEL) - RS.2,500/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Lamprais">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="1050" aria-label="Egg Hopper">
-                    <img src="Images/hoppers.png" alt="Egg Hopper">
-                    <label>EGG HOPPER WITH LUNU MIRIS & CHICKEN CURRY - RS.1,050/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Egg Hopper">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-            </div>
-
-            <!-- Desserts Section -->
-            <div class="menu-section">
-                <h2>Desserts</h2>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="1100" aria-label="Watalappan">
-                    <img src="Images/watalappan.png" alt="Watalappan">
-                    <label>WATALAPPAN (TRADITIONAL COCONUT CUSTARD) - RS.1,100/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Watalappan">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="1000" aria-label="Love Cake">
-                    <img src="Images/love-cake.png" alt="Love Cake">
-                    <label>SRI LANKAN LOVE CAKE - RS.1,000/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Love Cake">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="800" aria-label="Buffalo Curd">
-                    <img src="Images/curd.png" alt="Curd">
-                    <label>BUFFALO CURD WITH TREACLE - RS.800/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Buffalo Curd">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="950" aria-label="Milk Toffee">
-                    <img src="Images/milk-toffee.png" alt="Milk Toffee">
-                    <label>MILK TOFFEE (4 PCS) - RS.950/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Milk Toffee">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" class="menu-checkbox" data-price="850" aria-label="Jaggery & Coconut Pancakes">
-                    <img src="Images/pancakes.png" alt="Pan Cake">
-                    <label>JAGGERY & COCONUT PANCAKES - RS.850/-</label>
-                    <input type="number" class="quantity" min="1" value="1" aria-label="Jaggery & Coconut Pancakes">
-                    <span class="subtotal">RS.0.00</span>
-                </div>
-            </div>
-            <div class="delivery-fee">(+Delivery Charge RS.200.00)</div>
-            <div class="total">Total: RS.0.00</div>
-
-            <div class="payment-methods">
-            <h3>Select Payment Method:</h3>
-            <div class="payment-option">
-                <input type="radio" id="cod" name="payment-method" value="cod" checked>
-                <label for="cod">Cash on Delivery</label>
-            </div>
-            <div class="payment-option">
-                <input type="radio" id="card" name="payment-method" value="card">
-                <label for="card">Card Payment</label>
-            </div>
+    <div class="main-container">
+        <div class="form-header reveal-text">
+            <h3 class="section-label">FINALIZE YOUR ORDER</h3>
+            <h2 class="hero-title">Your <span class="highlight">Cart</span></h2>
         </div>
 
-            
-            <label for="instructions"><span style="color: #ff6b6b;">SPECIAL INSTRUCTIONS:</span></label>
-            <textarea id="instructions" name="instructions"></textarea>
+        <div class="order-form-wrapper reveal-fade">
+            <div id="cart-items-container">
+            </div>
+            <p id="empty-cart-msg" style="text-align: center; color: #fff; display: none;">Your cart is empty. <a
+                    href="menupage.html" class="highlight hover-target">Go to Menu</a></p>
 
-            <button type="button" id="view-cart-btn">View Cart</button>
-
-            <div id="cart-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2 style="color: #ff6b6b;">Your Cart</h2>
-                    <div id="cart-items"></div>
-                    <div id="cart-total">Total: RS.0.00</div>
-                    <button type="button" id="proceed-to-payment">Proceed to Payment</button>
+            <div class="order-summary" id="order-summary-box">
+                <div class="summary-row"><span>Subtotal</span><span id="subtotal-price">Rs 0</span></div>
+                <div class="summary-row"><span>Delivery Fee</span><span>Rs 350</span></div>
+                <div class="summary-row total"><span>Total</span><span id="total-price" class="highlight">Rs 350</span>
                 </div>
             </div>
-        </form>
-    </div>
-    <footer id="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>CONTACT</h3>
-                <p><strong><i class="fa fa-map-marker"></i> ADDRESS:<br></strong> <span style="color:#757575 ;">51,Queen's Road,<br> Colombo 03</span></p><br>
-                <p><strong><i class="fa fa-phone"></i>TELEPHONE:<br></strong><span style="color:#757575 ;">0770123456 | 0113456789</span> </p><br>
-                <p><strong><i class="fa fa-envelope"></i>EMAIL:<br></strong><a href="mailto:urbanbites@gmail.com"><span style="color:#757575 ;">urbanbites@gmail.com</span></a></p><br>
-                <p><strong><i class="fa fa-history"></i>OPEN HOURS:<br></strong><span style="color:#757575 ;">Mon - Sun | 10.00 AM to 9.00 PM</span> </p>
-            </div>
-            <div class="footer-section">
-                <h3>FOLLOW US</h3>
-                <div class="social-links">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                    <a href="https://www.facebook.com/urbanbites" target="_blank" class="fa fa-facebook"> &nbsp;&nbsp;&nbsp; <span style="font-family: Montserrat;"> Facebook</span></a>
-                    <a href="https://www.instagram.com/urbanbites" target="_blank" class="fa fa-instagram">&nbsp;&nbsp;&nbsp; <span style="font-family: Montserrat;"> Instagram</span></a>
-                    <a href="https://www.youtube.com/urbanbites" target="_blank" class="fa fa-youtube"> &nbsp;&nbsp;&nbsp; <span style="font-family: Montserrat;">Youtube</span></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>LEGAL</h3>
-                <p><a href="#terms" onclick="openTermsPopup()">Terms & Conditions</a></p>
-                <div id="termsPopup" class="popup">
-                    <div class="popup-content">
-                        <span class="close" onclick="closeTermsPopup()">&times;</span>
-                        <h2 style="color: #ff6b6b;">Terms & Conditions</h2>
-                        <p>Last Updated: 20.02.2025<br><br>
 
-                            Welcome to Urban Bites! These Terms and Conditions govern your use of our website, mobile application, and services. By accessing or using Urban Bites, you agree to comply with and be bound by these terms. If you do not agree, please do not use our services.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">1. Acceptance of Terms</span> <br>
-                            By using Urban Bites, you confirm that you are at least 18 years old or have parental/guardian consent to use our services. You agree to use our platform in accordance with these terms and all applicable laws.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">2. Services</span><br>
-                            Urban Bites provides an online platform for users to explore, order, and enjoy food from local restaurants and vendors. We act as an intermediary between users and restaurants, and we are not responsible for the quality, safety, or delivery of the food.<br><br>
-                        
-                                             
-                            <span style="font-size: larger; color: #ff6b6b;">3. Orders and Payments</span><br>
-                            &#9673; All orders are subject to availability and confirmation by the restaurant.<br>
-                            
-                            &#9673; Payment is processed through secure third-party payment gateways.<br>
-                            
-                            &#9673; Urban Bites is not responsible for any issues arising from payment processing.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">4. Cancellations and Refunds</span><br>
-                            &#9673; Cancellations are subject to the restaurant's policies.<br>
-                            
-                            &#9673; Refunds, if applicable, will be processed in accordance with our refund policy.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">5. Prohibited Activities</span><br>
-                            You agree not to:<br>
-                            
-                            &#9673; Use Urban Bites for any illegal or unauthorized purpose.<br>
-                            
-                            &#9673; Violate any laws in your jurisdiction.<br>
-                            
-                            &#9673; Interfere with the proper functioning of the platform.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">6. Limitation of Liability</span><br>
-                            Urban Bites is not liable for any indirect, incidental, or consequential damages arising from your use of our services.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">7. Changes to Terms</span><br>
-                            We reserve the right to modify these terms at any time. Continued use of our services constitutes acceptance of the updated terms.<br><br>
-                            
-                            <span style="font-size: larger; color: #ff6b6b;">8. Governing Law</span><br>
-                            These terms are governed by the laws of Sri Lanka, and any disputes will be resolved in the courts of Sri Lanka.</p>
+            <form id="orderForm" onsubmit="handleOrderSubmit(event)" style="display: none;">
+                <div class="form-section">
+                    <h3>Delivery Details</h3>
+                    <div class="input-group"><label for="name">Full Name</label><input type="text" id="name" name="name"
+                            required placeholder="John Doe"></div>
+                    <div class="input-group"><label for="contact">Contact Number</label><input type="tel" id="contact"
+                            name="contact" required placeholder="077 123 4567"></div>
+                    <div class="input-group"><label for="email">Email Address</label><input type="email" id="email"
+                            name="email" required placeholder="john@example.com"></div>
+                    <div class="input-group"><label for="address">Delivery Address</label><textarea id="address"
+                            name="address" rows="3" required placeholder="No. 10, Street Name, City"></textarea></div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Payment Method</h3>
+                    <div class="payment-methods">
+                        <label class="radio-label hover-target"><input type="radio" name="payment" value="cod"
+                                checked><span class="radio-custom"></span>Cash on Delivery</label>
+                        <label class="radio-label hover-target"><input type="radio" name="payment" value="card"><span
+                                class="radio-custom"></span>Card Payment</label>
                     </div>
                 </div>
-                              
-               <p><a href="#privacy" onclick="openPrivacyPopup()">Privacy Policy</a></p>
-               <div id="privacyPopup" class="popup">
-                   <div class="popup-content">
-                       <span class="close" onclick="closePrivacyPopup()">&times;</span>
-                       <h2 style="color: #ff6b6b;">Privacy Policy</h2>
-                       <p>Last Updated: 20.02.2025<br><br>
 
-                        At Urban Bites, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you use our website, mobile app, and services.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">1. Information We Collect</span><br>
-                        We may collect the following information:<br>
-                        
-                        &#9673; Personal Information: Name, email address, phone number, and payment details.<br>
-                        
-                        &#9673; Location Data: To provide location-based services.<br>
-                        
-                        &#9673; Usage Data: Information about how you interact with our platform.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">2. How We Use Your Information</span><br>
-                        We use your information to:<br>
-                        
-                        &#9673; Process orders and payments.<br>
-                        
-                        &#9673; Improve our services and user experience.<br>
-                        
-                        &#9673; Send promotional offers and updates (with your consent).<br>
-                        
-                        &#9673; Comply with legal obligations.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">3. Sharing Your Information</span><br>
-                        We may share your information with:<br>
-                        
-                        &#9673; Restaurants and delivery partners to fulfill orders.<br>
-                        
-                        &#9673; Third-party service providers (e.g., payment processors).<br>
-                        
-                        &#9673; Legal authorities if required by law.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">4. Data Security</span><br>
-                        We implement industry-standard security measures to protect your data. However, no method of transmission over the internet is 100% secure.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">5. Your Rights</span><br>
-                        You have the right to:<br>
-                        
-                        &#9673; Access, update, or delete your personal information.<br>
-                        
-                        &#9673; Opt-out of marketing communications.<br>
-                        
-                        &#9673; Withdraw consent for data processing.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">6. Cookies and Tracking</span><br>
-                        We use cookies and similar technologies to enhance your experience. You can disable cookies in your browser settings, but this may affect platform functionality.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">7. Third-Party Links</span><br>
-                        Our platform may contain links to third-party websites. We are not responsible for their privacy practices.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">8. Children's Privacy</span><br>
-                        Urban Bites does not knowingly collect information from children under 13. If we become aware of such data, we will delete it immediately.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">9. Changes to This Policy</span><br>
-                        We may update this Privacy Policy from time to time. Any changes will be posted on this page.<br><br>
-                        
-                        <span style="font-size: larger; color: #ff6b6b;">10. Contact Us</span><br>
-                        If you have any questions about this Privacy Policy, please contact us at:<br>
-                        
-                        &#9673; Email: urbanbites@gmail.com<br>
-                        
-                        &#9673; Phone: 0770123456 | 0113456789<br>
-                        
-                        &#9673; Address: 51 , Queen's Road , Colombo 03</p>
-                   </div>
-               </div>
-               
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn hover-target">PLACE ORDER</button>
+                    <a href="menupage.html" class="back-link hover-target">Add More Items</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer id="footer" class="footer-modern">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-nav">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="homepage.html" class="hover-target">Home</a></li>
+                        <li><a href="menupage.html" class="hover-target">Menu</a></li>
+                        <li><a href="homepage.html#about" class="hover-target">About</a></li>
+                        <li><a href="homepage.html#review" class="hover-target">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#" onclick="openTermsPopup(); return false;" class="hover-target">Terms</a></li>
+                        <li><a href="#" onclick="openPrivacyPopup(); return false;" class="hover-target">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Get in Touch</h3>
+                    <p><a href="mailto:urbanbites@gmail.com" class="hover-target">urbanbites@gmail.com</a></p>
+                    <p>077 012 3456</p>
+                    <div class="socials">
+                        <a href="#" class="hover-target"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="hover-target"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="hover-target"><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Urban Bites</p>
-    </div>
-</footer>
+            <div class="footer-big-text"><span>URBAN BITES</span></div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Urban Bites. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <div id="termsPopup" class="popup">
+        <div class="popup-content glass-card">
+            <span class="close hover-target" onclick="closeTermsPopup()">&times;</span>
+            <h2 class="highlight">Terms & Conditions</h2>
+            <div class="scrollable-content">
+                <p>...</p>
+            </div>
+        </div>
+    </div>
+    <div id="privacyPopup" class="popup">
+        <div class="popup-content glass-card">
+            <span class="close hover-target" onclick="closePrivacyPopup()">&times;</span>
+            <h2 class="highlight">Privacy Policy</h2>
+            <div class="scrollable-content">
+                <p>...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderCart();
+            const pCursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            const dot = document.getElementById('cursor-dot');
+            const outline = document.getElementById('cursor-outline');
+            window.addEventListener('mousemove', e => {
+                pCursor.x = e.clientX; pCursor.y = e.clientY;
+                if (dot) { dot.style.top = pCursor.y + 'px'; dot.style.left = pCursor.x + 'px'; }
+            });
+            let ox = pCursor.x, oy = pCursor.y;
+            function animateCursor() {
+                ox += (pCursor.x - ox) * 0.5;
+                oy += (pCursor.y - oy) * 0.5;
+                if (outline) { outline.style.top = oy + 'px'; outline.style.left = ox + 'px'; }
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            document.querySelectorAll('.hover-target, a, button, input, label').forEach(el => {
+                el.addEventListener('mouseenter', () => { if (outline) { outline.style.transform = 'translate(-50%, -50%) scale(2.5)'; outline.style.backgroundColor = 'rgba(255,255,255,0.1)'; } });
+                el.addEventListener('mouseleave', () => { if (outline) { outline.style.transform = 'translate(-50%, -50%) scale(1)'; outline.style.backgroundColor = 'transparent'; } });
+            });
+
+            // Mobile Menu
+            window.toggleMobileMenu = function () {
+                const nav = document.querySelector('.nav-links');
+                const burger = document.querySelector('.burger');
+                nav.classList.toggle('nav-active');
+                document.querySelectorAll('.nav-links li').forEach((link, index) => {
+                    if (link.style.animation) { link.style.animation = ''; }
+                    else { link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`; }
+                });
+                burger.classList.toggle('toggle');
+            };
+
+            const observer = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }), { threshold: 0.1 });
+            document.querySelectorAll('.reveal-text, .reveal-fade').forEach(el => observer.observe(el));
+        });
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const summaryBox = document.getElementById('order-summary-box');
+            const form = document.getElementById('orderForm');
+            const emptyMsg = document.getElementById('empty-cart-msg');
+            const cartCount = document.getElementById('cart-count');
+            let cart = JSON.parse(localStorage.getItem('urbanBitesCart')) || [];
+            if (cartCount) cartCount.textContent = `(${cart.reduce((a, b) => a + b.quantity, 0)})`;
+
+            if (cart.length === 0) {
+                container.innerHTML = "";
+                emptyMsg.style.display = 'block';
+                summaryBox.style.display = 'none'; form.style.display = 'none'; return;
+            }
+            emptyMsg.style.display = 'none'; summaryBox.style.display = 'block'; form.style.display = 'block'; container.innerHTML = "";
+
+            let subtotal = 0;
+            cart.forEach((item, idx) => {
+                subtotal += item.price * item.quantity;
+                const row = document.createElement('div'); row.className = 'cart-item-row';
+                row.innerHTML = `
+                    <div class="cart-img-box"><img src="${item.image}" alt="${item.name}" onerror="this.src='Images/Logo.png'"></div>
+                    <div class="cart-details"><h4>${item.name}</h4>
+                        <div class="cart-controls"><span class="price">Rs ${item.price}</span>
+                            <div class="qty-control"><button type="button" onclick="updateQty(${idx}, -1)">-</button><span>${item.quantity}</span><button type="button" onclick="updateQty(${idx}, 1)">+</button></div>
+                        </div>
+                    </div>
+                    <button type="button" class="remove-btn hover-target" onclick="removeFromCart(${idx})">&times;</button>`;
+                container.appendChild(row);
+            });
+            document.getElementById('subtotal-price').textContent = `Rs ${subtotal}`;
+            document.getElementById('total-price').textContent = `Rs ${subtotal + 350}`;
+        }
+        window.updateQty = function (idx, chg) {
+            let cart = JSON.parse(localStorage.getItem('urbanBitesCart')) || [];
+            if (cart[idx]) {
+                cart[idx].quantity += chg; if (cart[idx].quantity <= 0) cart.splice(idx, 1);
+                localStorage.setItem('urbanBitesCart', JSON.stringify(cart)); renderCart();
+            }
+        };
+        window.removeFromCart = function (idx) {
+            let cart = JSON.parse(localStorage.getItem('urbanBitesCart')) || [];
+            cart.splice(idx, 1); localStorage.setItem('urbanBitesCart', JSON.stringify(cart)); renderCart();
+        };
+        window.handleOrderSubmit = function (e) {
+            e.preventDefault();
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+            const totalText = document.getElementById('total-price').textContent.replace('Rs ', '').trim();
+
+            if (paymentMethod === 'card') {
+                window.location.href = `payment.html?total=${totalText}`;
+            } else {
+                alert("Order Placed Successfully! Cash on Delivery selected.");
+                localStorage.removeItem('urbanBitesCart');
+                window.location.href = 'homepage.html';
+            }
+        }
+        function openTermsPopup() { document.getElementById("termsPopup").style.display = "block"; }
+        function closeTermsPopup() { document.getElementById("termsPopup").style.display = "none"; }
+        function openPrivacyPopup() { document.getElementById("privacyPopup").style.display = "block"; }
+        function closePrivacyPopup() { document.getElementById("privacyPopup").style.display = "none"; }
+        window.onclick = function (e) {
+            if (e.target == document.getElementById("termsPopup")) closeTermsPopup();
+            if (e.target == document.getElementById("privacyPopup")) closePrivacyPopup();
+        };
+    </script>
 </body>
+
 </html>

@@ -1,53 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Bites | Secure Payment</title>
+    <link rel="icon" type="image/x-icon" href="Images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@400;700;800&family=Big+Shoulders+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="CSS/payment.css">
-    <script src="JavaScript/payment.js"></script>
-    <title>Card Payment</title>
-   
 </head>
+
 <body>
-    <div class="payment-container">
-        <h2>Card Payment</h2>
+    <!-- Global Elements -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <div class="noise-overlay"></div>
+    <div class="page-overlay"></div>
 
-        <!-- Order Summary -->
-        <div class="order-summary">
-            <p><strong>Order Summary</strong></p>
-            <p>Subtotal : <strong id="subtotal">Rs. 0.00</strong></p>
-            <p>Total Amount (Delivery Charges Included): <strong id="total-amount">Rs. 0.00</strong></p>
+    <!-- Header -->
+    <header id="main-header">
+        <nav>
+            <div class="logo-container">
+                <img src='Images/Logo.png' alt="Urban Bites Logo" class="nav-logo">
+                <span class="brand-name">Urban Bites</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homepage.html" class="hover-target">Home</a></li>
+                <li><a href="menupage.html" class="hover-target">Menu</a></li>
+                <li><a href="homepage.html#review" class="hover-target">Reviews</a></li>
+                <li><a href="#footer" class="hover-target">Contact</a></li>
+                <li><a href="orderpage.html" class="cta-button hover-target">Cart</a></li>
+            </ul>
+            <div class="burger hover-target" onclick="toggleMobileMenu()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <div class="form-header reveal-text">
+            <h3 class="section-label">SECURE CHECKOUT</h3>
+            <h2 class="hero-title">Card <span class="highlight">Payment</span></h2>
         </div>
-        
-        <!-- Card Payment Form -->
-        <form id="card-payment-form">
-            <h2>Payment Details</h2>
-            <label for="card-number">Card Number</label>
-            <input type="text" id="card-number" name="card-number" placeholder="1234-5678-9012-3456">
-            <span class="error" id="card-number-error"></span>
 
-            <label for="card-name">Name on Card</label>
-            <input type="text" id="card-name" name="card-name" placeholder="John Doe">
-            <span class="error" id="card-name-error"></span>
+        <div class="payment-wrapper reveal-fade">
+            <!-- Order Summary -->
+            <div class="order-summary-card">
+                <h3>Order Summary</h3>
+                <div class="summary-row"><span>Subtotal</span><strong id="subtotal">Rs. 0.00</strong></div>
+                <div class="summary-row total"><span>Total Amount</span><strong id="total-amount" class="highlight">Rs.
+                        0.00</strong></div>
+            </div>
 
-            <label for="expiry-date">Expiry Date (MM/YY)</label>
-            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
-            <span class="error" id="expiry-date-error"></span>
-
-            <label for="cvv">CVV</label>
-            <input type="text" id="cvv" name="cvv" placeholder="123">
-            <span class="error" id="cvv-error"></span>
-
-            <p><small>This is a secure payment gateway. Your information is encrypted and protected.</small></p>
-        <!-- Card Logos -->
+            <!-- Payment Form -->
+            <form id="card-payment-form" class="glass-form">
                 <div class="card-logos">
-                    <i class="fa fa-cc-visa" style="font-size:24px"></i>
-                    <i class="fa fa-cc-mastercard" style="font-size:24px"></i>
-                    <i class="fa fa-cc-amex" style="font-size:24px"></i>
+                    <i class="fa fa-cc-visa" aria-hidden="true"></i>
+                    <i class="fa fa-cc-mastercard" aria-hidden="true"></i>
+                    <i class="fa fa-cc-amex" aria-hidden="true"></i>
                 </div>
-            <button type="submit">Pay Now</button>
-        </form>
+
+                <div class="input-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="0000 0000 0000 0000"
+                        maxlength="19">
+                    <span class="error" id="card-number-error"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-name">Name on Card</label>
+                    <input type="text" id="card-name" name="card-name" placeholder="John Doe">
+                    <span class="error" id="card-name-error"></span>
+                </div>
+
+                <div class="row-group">
+                    <div class="input-group">
+                        <label for="expiry-date">Expiry (MM/YY)</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" maxlength="5">
+                        <span class="error" id="expiry-date-error"></span>
+                    </div>
+                    <div class="input-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                        <span class="error" id="cvv-error"></span>
+                    </div>
+                </div>
+
+                <p class="secure-note"><i class="fa fa-lock"></i> efficient & secure payment processing</p>
+
+                <button type="submit" class="pay-btn hover-target">PAY NOW</button>
+            </form>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer-modern">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-nav">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="homepage.html" class="hover-target">Home</a></li>
+                        <li><a href="menupage.html" class="hover-target">Menu</a></li>
+                        <li><a href="homepage.html#about" class="hover-target">About</a></li>
+                        <li><a href="homepage.html#review" class="hover-target">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#" onclick="openTermsPopup(); return false;" class="hover-target">Terms</a></li>
+                        <li><a href="#" onclick="openPrivacyPopup(); return false;" class="hover-target">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Get in Touch</h3>
+                    <p><a href="mailto:urbanbites@gmail.com" class="hover-target">urbanbites@gmail.com</a></p>
+                    <p>077 012 3456</p>
+                    <div class="socials">
+                        <a href="#" class="hover-target"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="hover-target"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="hover-target"><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-big-text"><span>URBAN BITES</span></div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Urban Bites. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Standard Popups -->
+    <div id="termsPopup" class="popup">
+        <div class="popup-content glass-card">
+            <span class="close hover-target" onclick="closeTermsPopup()">&times;</span>
+            <h2 class="highlight">Terms & Conditions</h2>
+            <div class="scrollable-content">
+                <p>Content...</p>
+            </div>
+        </div>
+    </div>
+    <div id="privacyPopup" class="popup">
+        <div class="popup-content glass-card">
+            <span class="close hover-target" onclick="closePrivacyPopup()">&times;</span>
+            <h2 class="highlight">Privacy Policy</h2>
+            <div class="scrollable-content">
+                <p>Content...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="JavaScript/payment.js"></script>
+    <script>
+        // Global UI Scripts (Cursor, Mobile Menu, Popups) - Inline for simplicity unless splitting to separate file
+        document.addEventListener("DOMContentLoaded", function () {
+            // Cursor
+            const pCursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            const dot = document.getElementById('cursor-dot');
+            const outline = document.getElementById('cursor-outline');
+            window.addEventListener('mousemove', e => {
+                pCursor.x = e.clientX; pCursor.y = e.clientY;
+                if (dot) { dot.style.top = pCursor.y + 'px'; dot.style.left = pCursor.x + 'px'; }
+            });
+            let ox = pCursor.x, oy = pCursor.y;
+            function animateCursor() {
+                ox += (pCursor.x - ox) * 0.5;
+                oy += (pCursor.y - oy) * 0.5;
+                if (outline) { outline.style.top = oy + 'px'; outline.style.left = ox + 'px'; }
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Hover Effects
+            document.querySelectorAll('.hover-target, a, button, input, label').forEach(el => {
+                el.addEventListener('mouseenter', () => { if (outline) { outline.style.transform = 'translate(-50%, -50%) scale(2.5)'; outline.style.backgroundColor = 'rgba(255,255,255,0.1)'; } });
+                el.addEventListener('mouseleave', () => { if (outline) { outline.style.transform = 'translate(-50%, -50%) scale(1)'; outline.style.backgroundColor = 'transparent'; } });
+            });
+
+            // Mobile Menu
+            window.toggleMobileMenu = function () {
+                const nav = document.querySelector('.nav-links');
+                const burger = document.querySelector('.burger');
+                nav.classList.toggle('nav-active');
+                document.querySelectorAll('.nav-links li').forEach((link, index) => {
+                    if (link.style.animation) { link.style.animation = ''; }
+                    else { link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`; }
+                });
+                burger.classList.toggle('toggle');
+            };
+
+            // Reveal Animations
+            const observer = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }), { threshold: 0.1 });
+            document.querySelectorAll('.reveal-text, .reveal-fade').forEach(el => observer.observe(el));
+        });
+
+        function openTermsPopup() { document.getElementById("termsPopup").style.display = "block"; }
+        function closeTermsPopup() { document.getElementById("termsPopup").style.display = "none"; }
+        function openPrivacyPopup() { document.getElementById("privacyPopup").style.display = "block"; }
+        function closePrivacyPopup() { document.getElementById("privacyPopup").style.display = "none"; }
+        window.onclick = function (e) {
+            if (e.target == document.getElementById("termsPopup")) closeTermsPopup();
+            if (e.target == document.getElementById("privacyPopup")) closePrivacyPopup();
+        };
+    </script>
 </body>
+
 </html>
