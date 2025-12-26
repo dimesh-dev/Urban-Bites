@@ -12,22 +12,24 @@ Urban Bites is a modern, responsive web application built for food enthusiasts a
 
 ## 📸 Preview
 
-### 🏠 Homepage  
-![Urban Bites Homepage](https://github.com/user-attachments/assets/de7de0f9-21b9-4f22-b9c9-7711cb026dc7)
+### 🏠 Homepage
+
+![Urban Bites Homepage](https://github.com/user-attachments/assets/b79ff27f-60ca-49e6-a6e8-1c7f824dc123)
 
 The landing page showcasing featured meals, categories, and call-to-action sections for users to explore the menu or start an order.
 
 ---
 
 ### 📋 Menu Page  
-![Urban Bites Menu Page](https://github.com/user-attachments/assets/91c2b40a-c96f-4ca5-8522-24e67eeed718)
+![Urban Bites Menu Page](https://github.com/user-attachments/assets/84beae22-b47d-4188-af70-4584dd5aa6d7)
 
 Displays all available food items with filters and categories, making it easy for customers to browse and select their favorite dishes.
 
 ---
 
 ### 🏠 Order Page  
-![Urban Bites Homepage](https://github.com/user-attachments/assets/a7b068cf-8a72-47ca-95c9-2f2376db034e)
+![Urban Bites Homepage](https://github.com/user-attachments/assets/9f469ea0-2f59-4df7-9c83-cb1e402574c9)
+
 
 ---
 
